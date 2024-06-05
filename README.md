@@ -22,6 +22,12 @@
 </ol>
 The generated signed secret phrase will appear at the bottom of the page. Click on the Copy to clipboard line to copy it to the clipboard.
 
+## Checking files
+The archive contains files with a checksum (files of the type ***"\*\*\*.checksum"*** ) for each file. You can check the authenticity of this file through online services that can calculate file hash by MD5 string
+
+For example: https://emn178.github.io/online-tools/md5_checksum.html 
+
+
 ## Error Messages
 - ***“Please fill in the message”*** will appear if the ***Sign message*** button is pressed when the ***Message*** field is empty
 - ***“Please fill in the private key”*** will appear if the ***Sign message*** button is pressed when the ***Private key*** field is empty
