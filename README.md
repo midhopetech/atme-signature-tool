@@ -23,9 +23,9 @@
 The generated signed secret phrase will appear at the bottom of the page. Click on the Copy to clipboard line to copy it to the clipboard.
 
 ## Checking files
-The archive contains files with a checksum (files of the type ***"\*\*\*.checksum"*** ) for each file. You can check the authenticity of this file through online services that can calculate file hash by MD5 string
+The archive contains files with a checksum (files of the type ***"\*\*\*.checksum"*** ) for each file. You can check the authenticity of this file through online services that can calculate file hash by SHA512 string
 
-For example: https://emn178.github.io/online-tools/md5_checksum.html 
+For example: https://sha512.online/
 
 
 ## Error Messages
