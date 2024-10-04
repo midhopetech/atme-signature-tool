@@ -20,6 +20,7 @@ limitations under the License.
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ATME Signature</title>
     <script src="noble-ed25519.js"></script>
+    <script src="noble-secp256k1.js"></script>
     <style>
         body {
             display: flex;
@@ -216,20 +217,31 @@ limitations under the License.
             alert('Please fill in the private key.');
             return;
         }
-        if (privateKey.length !== 128) {
-            alert('Expected 64 byte private key. Please fill in the private key correctly.');
-            return;
-        }
 
         let enc = new TextEncoder("utf-8");
         let hexMessage = new Uint8Array(enc.encode(message));
 
-        privateKey = privateKey.slice(0, 64);
-        let signature = await window.nobleEd25519.sign(hexMessage, privateKey);
-
-        console.log(await ArrayBufferToHex(signature));
-        const resultDiv = document.getElementById('result');
-        resultDiv.textContent = 'Result: \n' + await ArrayBufferToHex(signature);
+        switch (privateKey.length){
+            case 64: {
+                let signature = window.nobleP256.sign(hexMessage, privateKey);
+                console.log(await ArrayBufferToHex(signature));
+                const resultDiv = document.getElementById('result');
+                resultDiv.textContent = 'Result: \n0x' + signature;
+                break;
+            }
+            case 128: {
+                privateKey = privateKey.slice(0, 64);
+                let signature = await window.nobleEd25519.sign(hexMessage, privateKey);
+                console.log(await ArrayBufferToHex(signature));
+                const resultDiv = document.getElementById('result');
+                resultDiv.textContent = 'Result: \n' + await ArrayBufferToHex(signature);
+                break;
+            }
+            default: {
+                alert('Unexpected length of private key. Please fill in the private key correctly.');
+                return;
+            }
+        }
 
         document.getElementById('copyLink').style.display = 'inline';
     }
