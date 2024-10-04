@@ -31,4 +31,4 @@ For example: https://sha512.online/
 ## Error Messages
 - ***“Please fill in the message”*** will appear if the ***Sign message*** button is pressed when the ***Message*** field is empty
 - ***“Please fill in the private key”*** will appear if the ***Sign message*** button is pressed when the ***Private key*** field is empty
-- ***“Expected 64-byte private key. Please fill in the private key correctly”*** will appear if the length of the entered private key is incorrect, a message will appear.
+- ***“Unexpected length of private key. Please fill in the private key correctly”*** will appear if the length of the entered private key is incorrect, a message will appear.
